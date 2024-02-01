@@ -1,40 +1,54 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;700&display=swap");
 
 :root {
-	--yellow: #FFD15B;
-	--black: #1B1B1B;
-	--light-grey: #C6C6C6;
-	--background-color: #FAFAFA;
-	--grey_main: #7A7A7A;
-	--grey: #EDEDED;
+    --yellow: #ffd15b;
+    --black: #1b1b1b;
+    --light-grey: #c6c6c6;
+    --background-color: #fafafa;
+    --grey_main: #7a7a7a;
+    --grey: #ededed;
 }
 
 * {
-	padding: 0;
-	margin: 0;
+    padding: 0;
+    margin: 0;
 
-	font-family: 'Manrope', sans-serif;
-	color: var(--black);
+    font-family: "Manrope", sans-serif;
+    color: var(--black);
 
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-	background-color: var(--grey);
+    background-color: var(--grey);
 }
 
 a {
-	text-decoration: none;
+    text-decoration: none;
 }
 
 main {
-	padding: 30px;
-	margin: 0 auto;
-	max-width: 1750px;
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-start;
-	flex-wrap: wrap;
-	gap: 30px;
+    padding: 30px;
+    margin: 0 auto;
+    max-width: 1750px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.cross {
+    cursor: pointer;
+
+    margin-left: -84px !important;
+    margin-right: 10px;
+}
+
+.cross-dropdown {
+    width: 10px !important;
+
+    margin-right: 6px;
+    margin-left: -38px !important;
 }

@@ -1,0 +1,117 @@
+.custom-dropdown-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 70px;
+}
+
+.custom-dropdown {
+    position: relative;
+    width: 195px;
+
+    background-color: white;
+    border-radius: 11px;
+}
+
+.custom-dropdown:hover {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.custom-dropdown:hover .custom-dropdown-title img {
+    transform: rotate(180deg);
+}
+
+.custom-dropdown:hover .custom-dropdown-content {
+    position: absolute;
+    display: flex;
+
+    border-bottom-left-radius: 11px;
+    border-bottom-right-radius: 11px;
+}
+
+.custom-dropdown-title {
+    cursor: pointer;
+    padding: 17px 16px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.custom-dropdown-title img {
+    width: 20px;
+}
+
+.custom-dropdown-title p {
+    color: var(--black);
+
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.custom-dropdown-content {
+    display: none;
+    flex-direction: column;
+
+    background-color: white;
+
+    z-index: 1;
+}
+
+.custom-dropdown-searchbar {
+    padding: 0 16px 17px;
+    display: flex;
+    align-items: center;
+}
+
+.custom-dropdown-searchbar input[type="text"] {
+    padding: 8px 10px;
+    padding-right: 24px;
+
+    width: 100%;
+
+    font-size: 14px;
+    color: var(--light-grey);
+
+    border: 1px solid var(--light-grey);
+    border-radius: 2px;
+
+    outline: none;
+}
+
+.custom-dropdown-searchbar img {
+    margin-left: -22px;
+    width: 14.5px;
+    filter: brightness(0) saturate(0%);
+}
+
+.custom-dropdown-elements {
+    margin-top: 5px;
+    height: 200px;
+
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+
+    border-bottom-left-radius: 11px;
+    border-bottom-right-radius: 11px;
+}
+
+.custom-dropdown-elements p {    
+    padding: 0 16px 0;
+    height: 37px;
+
+    display: flex;
+    align-items: center;
+
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.custom-dropdown-elements p:last-child {
+    margin-bottom: 10px;
+}
+
+.custom-dropdown-elements p:hover {
+    background-color: var(--yellow);
+}
