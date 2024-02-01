@@ -1,314 +1,46 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="stylesheet" href="./assets/css/header-style.css" />
-    <link rel="stylesheet" href="./assets/css/card.css" />
-    <title>Les Petits Plats</title>
-</head>
-<body>
-    <header>
-        <div class="header__container">
-            <img src="./assets/images/Logo.svg" alt="Logo image" />
-            <div class="header__body">
-                <h2>
-                    CHERCHEZ PARMI PLUS DE 1500 RECETTES DU
-                    QUOTIDIEN,SIMPLES ET DÉLICIEUSES
-                </h2>
-                <form>
-                    <input
-                        type="text"
-                        name="search"
-                        id="search"
-                        placeholder="Rechercher une recette, un ingrédient, ..."
-                    />
-                    <button>
-                        <img src="./assets/images/Loupe.svg" alt="Search image" />
-                    </button>
-                </form>
-            </div>
-        </div>
-        <img src="./assets/images/background.jpg" alt="Header background image" />
-    </header>
-    <main>
-        <div class="custom-card">
-            <div class="custom-card-img-container">
-                <img src="./assets/images/recettes/Recette01.jpg" alt="Recette">
-                <span>10min</span>
-            </div>
-        
-            <div class="custom-card-content">
-                <h3>Limonade de Coco</h3>
-        
-                <div class="custom-card-section">
-                    <p class="custom-card-subtitle">RECETTE</p>
-                    <p class="custom-card-desc">Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée.</p>
-                </div>
-        
-                <div class="custom-card-section">
-                    <p class="custom-card-subtitle">Ingrédients</p>
-        
-                    <div class="custom-card-column-container">
-                        <div class="custom-card-column">
-                            <p>Lait de coco</p>
-                            <span>400ml</span>
-                        </div>
-        
-                        <div class="custom-card-column">
-                            <p>Jus de citron</p>
-                            <span>2</span>
-                        </div>
-        
-                        <div class="custom-card-column">
-                            <p>Créme de coco</p>
-                            <span>4 cuillères</span>
-                        </div>
-        
-                        <div class="custom-card-column">
-                            <p>Sucre</p>
-                            <span>20g</span>
-                        </div>
-        
-                        <div class="custom-card-column">
-                            <p>Glaçons</p>
-                            <span>2</span>
-                        </div>
-                    </div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./assets/css/style.css" />
+        <link rel="stylesheet" href="./assets/css/header-style.css" />
+        <link rel="stylesheet" href="./assets/css/card.css" />
+        <title>Les Petits Plats</title>
+        <script type="module" src="./assets/scripts/index.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="header__container">
+                <img src="./assets/images/Logo.svg" alt="Logo image" />
+                <div class="header__body">
+                    <h2>
+                        CHERCHEZ PARMI PLUS DE 1500 RECETTES DU
+                        QUOTIDIEN,SIMPLES ET DÉLICIEUSES
+                    </h2>
+                    <form>
+                        <input
+                            type="text"
+                            name="search"
+                            id="search"
+                            placeholder="Rechercher une recette, un ingrédient, ..."
+                        />
+                        <button>
+                            <img
+                                src="./assets/images/Loupe.svg"
+                                alt="Search image"
+                            />
+                        </button>
+                    </form>
                 </div>
             </div>
-        </div>            
-        <div class="custom-card">
-            <div class="custom-card-img-container">
-                <img src="./assets/images/recettes/Recette01.jpg" alt="Recette">
-                <span>10min</span>
-            </div>
-        
-            <div class="custom-card-content">
-                <h3>Limonade de Coco</h3>
-        
-                <div class="custom-card-section">
-                    <p class="custom-card-subtitle">RECETTE</p>
-                    <p class="custom-card-desc">Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée.</p>
-                </div>
-        
-                <div class="custom-card-section">
-                    <p class="custom-card-subtitle">Ingrédients</p>
-        
-                    <div class="custom-card-column-container">
-                        <div class="custom-card-column">
-                            <p>Lait de coco</p>
-                            <span>400ml</span>
-                        </div>
-        
-                        <div class="custom-card-column">
-                            <p>Jus de citron</p>
-                            <span>2</span>
-                        </div>
-        
-                        <div class="custom-card-column">
-                            <p>Créme de coco</p>
-                            <span>4 cuillères</span>
-                        </div>
-        
-                        <div class="custom-card-column">
-                            <p>Sucre</p>
-                            <span>20g</span>
-                        </div>
-        
-                        <div class="custom-card-column">
-                            <p>Glaçons</p>
-                            <span>2</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>            
-        <div class="custom-card">
-            <div class="custom-card-img-container">
-                <img src="./assets/images/recettes/Recette01.jpg" alt="Recette">
-                <span>10min</span>
-            </div>
-        
-            <div class="custom-card-content">
-                <h3>Limonade de Coco</h3>
-        
-                <div class="custom-card-section">
-                    <p class="custom-card-subtitle">RECETTE</p>
-                    <p class="custom-card-desc">Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée.</p>
-                </div>
-        
-                <div class="custom-card-section">
-                    <p class="custom-card-subtitle">Ingrédients</p>
-        
-                    <div class="custom-card-column-container">
-                        <div class="custom-card-column">
-                            <p>Lait de coco</p>
-                            <span>400ml</span>
-                        </div>
-        
-                        <div class="custom-card-column">
-                            <p>Jus de citron</p>
-                            <span>2</span>
-                        </div>
-        
-                        <div class="custom-card-column">
-                            <p>Créme de coco</p>
-                            <span>4 cuillères</span>
-                        </div>
-        
-                        <div class="custom-card-column">
-                            <p>Sucre</p>
-                            <span>20g</span>
-                        </div>
-        
-                        <div class="custom-card-column">
-                            <p>Glaçons</p>
-                            <span>2</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>            
-        <div class="custom-card">
-            <div class="custom-card-img-container">
-                <img src="./assets/images/recettes/Recette01.jpg" alt="Recette">
-                <span>10min</span>
-            </div>
-        
-            <div class="custom-card-content">
-                <h3>Limonade de Coco</h3>
-        
-                <div class="custom-card-section">
-                    <p class="custom-card-subtitle">RECETTE</p>
-                    <p class="custom-card-desc">Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée.</p>
-                </div>
-        
-                <div class="custom-card-section">
-                    <p class="custom-card-subtitle">Ingrédients</p>
-        
-                    <div class="custom-card-column-container">
-                        <div class="custom-card-column">
-                            <p>Lait de coco</p>
-                            <span>400ml</span>
-                        </div>
-        
-                        <div class="custom-card-column">
-                            <p>Jus de citron</p>
-                            <span>2</span>
-                        </div>
-        
-                        <div class="custom-card-column">
-                            <p>Créme de coco</p>
-                            <span>4 cuillères</span>
-                        </div>
-        
-                        <div class="custom-card-column">
-                            <p>Sucre</p>
-                            <span>20g</span>
-                        </div>
-        
-                        <div class="custom-card-column">
-                            <p>Glaçons</p>
-                            <span>2</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>            
-        <div class="custom-card">
-            <div class="custom-card-img-container">
-                <img src="./assets/images/recettes/Recette01.jpg" alt="Recette">
-                <span>10min</span>
-            </div>
-        
-            <div class="custom-card-content">
-                <h3>Limonade de Coco</h3>
-        
-                <div class="custom-card-section">
-                    <p class="custom-card-subtitle">RECETTE</p>
-                    <p class="custom-card-desc">Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée.</p>
-                </div>
-        
-                <div class="custom-card-section">
-                    <p class="custom-card-subtitle">Ingrédients</p>
-        
-                    <div class="custom-card-column-container">
-                        <div class="custom-card-column">
-                            <p>Lait de coco</p>
-                            <span>400ml</span>
-                        </div>
-        
-                        <div class="custom-card-column">
-                            <p>Jus de citron</p>
-                            <span>2</span>
-                        </div>
-        
-                        <div class="custom-card-column">
-                            <p>Créme de coco</p>
-                            <span>4 cuillères</span>
-                        </div>
-        
-                        <div class="custom-card-column">
-                            <p>Sucre</p>
-                            <span>20g</span>
-                        </div>
-        
-                        <div class="custom-card-column">
-                            <p>Glaçons</p>
-                            <span>2</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>            
-        <div class="custom-card">
-            <div class="custom-card-img-container">
-                <img src="./assets/images/recettes/Recette01.jpg" alt="Recette">
-                <span>10min</span>
-            </div>
-        
-            <div class="custom-card-content">
-                <h3>Limonade de Coco</h3>
-        
-                <div class="custom-card-section">
-                    <p class="custom-card-subtitle">RECETTE</p>
-                    <p class="custom-card-desc">Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée.</p>
-                </div>
-        
-                <div class="custom-card-section">
-                    <p class="custom-card-subtitle">Ingrédients</p>
-        
-                    <div class="custom-card-column-container">
-                        <div class="custom-card-column">
-                            <p>Lait de coco</p>
-                            <span>400ml</span>
-                        </div>
-        
-                        <div class="custom-card-column">
-                            <p>Jus de citron</p>
-                            <span>2</span>
-                        </div>
-        
-                        <div class="custom-card-column">
-                            <p>Créme de coco</p>
-                            <span>4 cuillères</span>
-                        </div>
-        
-                        <div class="custom-card-column">
-                            <p>Sucre</p>
-                            <span>20g</span>
-                        </div>
-        
-                        <div class="custom-card-column">
-                            <p>Glaçons</p>
-                            <span>2</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>            
-    </main>
-</body>
+            <img
+                src="./assets/images/background.jpg"
+                alt="Header background image"
+            />
+        </header>
+        <main>
+            <div class="custom-card-container"></div>
+        </main>
+    </body>
 </html>
