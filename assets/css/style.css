@@ -33,6 +33,8 @@ main {
 	max-width: 1750px;
 	width: 100%;
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	flex-direction: row;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	gap: 30px;
 }
