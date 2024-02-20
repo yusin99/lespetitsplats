@@ -82,7 +82,7 @@ export const eraseCross = (e, i) => {
   e.remove()
 
   recipeFactory.updateCards()
-  filterFactory.renderSelections(i)
+  filterFactory.updateDropdownOptions(i)
 }
 
 /**
