@@ -22,3 +22,8 @@ const debouncedUpdateCards = debounce((value) => {
   recipeFactory.updateCards(value)
 }, 500)
 
+// Attach event listeners to input elements for keyup events
+document.querySelectorAll('input').forEach((i) => i.addEventListener('keyup', () => {
+  handleCross(i)
+  if (i.id === 'search') debouncedUpdateCards(i.value)
+}))
