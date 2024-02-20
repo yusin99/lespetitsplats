@@ -45,6 +45,17 @@ main {
     margin-left: -84px !important;
     margin-right: 10px;
 }
+.custom-filters-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 70px;
+}
+#custom-recipes-count {
+	font-family: 'Anton', sans-serif;
+	font-size: 21px;
+	font-weight: 400;
+}
 
 .cross-dropdown {
     width: 10px !important;
@@ -52,3 +63,69 @@ main {
     margin-right: 6px;
     margin-left: -38px !important;
 }
+
+.custom-selectors-container {
+	margin-bottom: 20px;
+
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+    gap: 15px;
+}
+
+.custom-selectors-container:first-child {
+    justify-content: space-between;
+}
+
+.selection {
+    padding: 0 20px;
+
+    width: 203px;
+    height: 53px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: var(--yellow);
+    border-radius: 11px;
+}
+
+.selection img {
+    cursor: pointer;
+}
+
+.cross {
+	cursor: pointer;
+	
+	margin-left: -84px !important;
+	margin-right: 10px;
+}
+
+.cross-dropdown {
+	width: 10px !important;
+
+	margin-right: 6px;
+	margin-left: -38px !important;
+}
+
+.custom-error-section {
+	font-size: 1.2em;
+}
+
+.custom-filter-selected{
+    background-color: red;
+    font-weight: bold;
+}
+
+.custom-dropdown-elements .selected-tag {
+    background-color: var(--yellow);
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .custom-dropdown-elements .selected-tag .cross-icon {
+    display: inline-block;
+    margin-left: 5px;
+    cursor: pointer;
+  }
