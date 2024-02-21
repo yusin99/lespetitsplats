@@ -23,7 +23,10 @@ const debouncedUpdateCards = debounce((value) => {
 }, 500)
 
 // Attach event listeners to input elements for keyup events
-document.querySelectorAll('input').forEach((i) => i.addEventListener('keyup', () => {
-  handleCross(i)
-  if (i.id === 'search') debouncedUpdateCards(i.value)
-}))
+document.addEventListener('keyup', (event) => {
+  const target = event.target
+  if (target.tagName === 'INPUT') {
+    handleCross(target)
+    if (target.id === 'search') debouncedUpdateCards(target.value)
+  }
+})
