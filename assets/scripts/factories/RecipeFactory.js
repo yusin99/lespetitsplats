@@ -52,9 +52,9 @@ export const RecipeFactory = () => {
     clearCards()
     const tagsResults = filterByTags()
     const searchResults = filterBySearch(tagsResults, searchInput)
-    updateFilters(tagsResults, searchResults)
+    updateFilters(searchResults)
     renderResults(searchResults, errorElement, searchInput)
-    updateRecipesCount(cards)
+    updateRecipesCount(searchResults)
     const endTime = performance.now()
     console.log(
             `Update end. Update took ${endTime - startTime} milliseconds`
@@ -76,6 +76,7 @@ export const RecipeFactory = () => {
      * @returns {Array} - The filtered recipes based on selected tags.
      */
   const filterByTags = () => {
+    console.log(selectedTags)
     const tagsTextContent = selectedTags.map((tag) => tag.textContent)
     return tagsTextContent.length !== 0
       ? filterAlgorithm(recipes, tagsTextContent)
@@ -104,10 +105,8 @@ export const RecipeFactory = () => {
      * @param {Array} tagsResults - The recipes filtered by tags.
      * @param {Array} searchResults - The recipes filtered by search input.
      */
-  const updateFilters = (tagsResults, searchResults) => {
-    const filtersToUpdate =
-            tagsResults.length > 0 ? tagsResults : searchResults
-    filterFactory.updateFilters(filtersToUpdate)
+  const updateFilters = (searchResults) => {
+    filterFactory.updateFilters(searchResults)
   }
 
   /**
