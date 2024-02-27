@@ -90,10 +90,11 @@ export const RecipeFactory = () => {
      * @returns {Array} - The filtered recipes based on search input and selected tags.
      */
   const filterBySearch = (tagsResults, input) => {
+    const values = [...selectedTags.map(tag => tag.textContent), input]
     if (input.length >= 3) {
       return filterAlgorithm(
         tagsResults.length !== 0 ? tagsResults : recipes,
-        [input]
+        values
       )
     } else {
       return tagsResults.length !== 0 ? tagsResults : recipes
