@@ -50,17 +50,19 @@ export const createCard = (recipe) => {
  * @returns {Array} - The filtered array.
  */
 export const filterAlgorithm = (array, values) => {
+  console.log(values)
   return array.filter(data => {
-    const { title, description, ingredients } = data
-
-    // We transform the extracted values form the data into strings
-    const titleDescriptionString = (title + ' ' + description).toLowerCase()
-    const ingredientsString = ingredients.join(' ').toLowerCase()
-
-    // We verify for each string, if the value that is passed as parameter is contained into it
     return values.every(value => {
-      const lowercaseValue = value.toLowerCase()
-      return titleDescriptionString.includes(lowercaseValue) || ingredientsString.includes(lowercaseValue)
+      return (
+        data.name.toLowerCase().includes(value.toLowerCase()) ||
+        data.description.toLowerCase().includes(value.toLowerCase()) ||
+        data.ingredients.some(ingredient => {
+          if (typeof ingredient === 'string') {
+            return ingredient.toLowerCase().includes(value.toLowerCase())
+          }
+          return false
+        })
+      )
     })
   })
 }
