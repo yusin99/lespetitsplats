@@ -89,6 +89,7 @@ main {
 
     background: var(--yellow);
     border-radius: 11px;
+    text-transform: uppercase;
 }
 
 .selection img {

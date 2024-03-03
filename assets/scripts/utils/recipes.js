@@ -6,7 +6,7 @@ export const recipes = [
         "servings" : 1,
         "ingredients": [
             {
-                "ingredient" : "Lait de Coco",
+                "ingredient" : "Lait de coco",
                 "quantity" : 400,
                 "unit" : "ml"
             },
@@ -81,7 +81,7 @@ export const recipes = [
                 "quantity" : 1          
             },
             {
-                "ingredient": "Lait de Coco",
+                "ingredient": "Lait de coco",
                 "quantity" : 400,
                 "unit" : "ml"
             },

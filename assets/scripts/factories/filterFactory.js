@@ -28,9 +28,9 @@ const extractUniqueValues = (recipeList, property) => {
       recipeList.flatMap((recipe) =>
         Array.isArray(recipe[property])
           ? recipe[property].map((item) =>
-            isObject(item) ? item.ingredient : item
+            isObject(item) ? item.ingredient.toLowerCase() : item.toLowerCase()
           )
-          : [recipe[property]]
+          : [recipe[property].toLowerCase()]
       )
     )
   ]
