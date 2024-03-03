@@ -76,10 +76,9 @@ export const RecipeFactory = () => {
      * @returns {Array} - The filtered recipes based on selected tags.
      */
   const filterByTags = () => {
-    console.log(selectedTags)
     const tagsTextContent = selectedTags.map((tag) => tag.textContent)
     return tagsTextContent.length !== 0
-      ? filterAlgorithm(recipes, tagsTextContent)
+      ? filterAlgorithm(recipes, tagsTextContent, 'tag')
       : []
   }
 
@@ -90,11 +89,11 @@ export const RecipeFactory = () => {
      * @returns {Array} - The filtered recipes based on search input and selected tags.
      */
   const filterBySearch = (tagsResults, input) => {
-    const values = [...selectedTags.map(tag => tag.textContent), input]
     if (input.length >= 3) {
       return filterAlgorithm(
         tagsResults.length !== 0 ? tagsResults : recipes,
-        values
+        [input],
+        'input'
       )
     } else {
       return tagsResults.length !== 0 ? tagsResults : recipes
@@ -159,7 +158,9 @@ export const RecipeFactory = () => {
      * @param {HTMLElement} tagElement - The tag element to update.
      */
   const updateTags = (tagElement) => {
-    const tagsContainer = document.querySelector('.custom-selectors-container')
+    const tagsContainer = document.querySelector(
+      '.custom-selectors-container'
+    )
     tagsContainer.appendChild(
       filterFactory.createTagElement(tagElement.textContent)
     )

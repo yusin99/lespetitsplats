@@ -43,26 +43,108 @@ export const createCard = (recipe) => {
   const card = `<div class="custom-card">${media}${content}</div>`
   return card
 }
+
+// Algo1
+// export const filterAlgorithm = (recipes, keywords, searchType) => {
+//   const filteredRecipes = []
+
+//   for (const recipe of recipes) {
+//     let isMatched = true
+
+//     for (const keyword of keywords) {
+//       if (searchType === 'tag') {
+//         if (
+//           !(
+//             recipe.appliance
+//               .toLowerCase()
+//               .includes(keyword.toLowerCase()) ||
+//                         recipe.ustensils.some((ustensil) =>
+//                           ustensil
+//                             .toLowerCase()
+//                             .includes(keyword.toLowerCase())
+//                         ) ||
+//                         recipe.ingredients.some((ingredient) =>
+//                           ingredient.ingredient
+//                             .toLowerCase()
+//                             .includes(keyword.toLowerCase())
+//                         )
+//           )
+//         ) {
+//           isMatched = false
+//           break
+//         }
+//       } else if (searchType === 'input') {
+//         const titleDescriptionString = (
+//           recipe.name +
+//                     ' ' +
+//                     recipe.description
+//         ).toLowerCase()
+//         const allIngredientsString = recipe.ingredients
+//           .map((ingredient) => ingredient.ingredient.toLowerCase())
+//           .join(' ')
+
+//         if (
+//           !(
+//             titleDescriptionString.includes(
+//               keyword.toLowerCase()
+//             ) ||
+//                         allIngredientsString.includes(keyword.toLowerCase())
+//           )
+//         ) {
+//           isMatched = false
+//           break
+//         }
+//       }
+//     }
+
+//     if (isMatched) {
+//       filteredRecipes.push(recipe)
+//     }
+//   }
+
+//   return filteredRecipes
+// }
+
 /**
- * Filters an array of objects based on specified values using a filtering algorithm.
- * @param {Array} array - The array to filter.
- * @param {Array} values - The values to filter by.
- * @returns {Array} - The filtered array.
+ * Filters recipes based on the search input or selected tags.
+ * @param {Array} recipes - The list of recipes to filter.
+ * @param {Array} keywords - The keywords to search for.
+ * @param {string} searchType - Type of search: 'tag' or 'input'.
+ * @returns {Array} - The filtered recipes.
  */
-export const filterAlgorithm = (array, values) => {
-  console.log(values)
-  return array.filter(data => {
-    return values.every(value => {
-      return (
-        data.name.toLowerCase().includes(value.toLowerCase()) ||
-        data.description.toLowerCase().includes(value.toLowerCase()) ||
-        data.ingredients.some(ingredient => {
-          if (typeof ingredient === 'string') {
-            return ingredient.toLowerCase().includes(value.toLowerCase())
-          }
-          return false
-        })
-      )
+export const filterAlgorithm = (recipes, keywords, searchType) => {
+  return recipes.filter((recipe) => {
+    // eslint-disable-next-line array-callback-return
+    return keywords.every((keyword) => {
+      if (searchType === 'tag') {
+        return (
+          recipe.appliance
+            .toLowerCase()
+            .includes(keyword.toLowerCase()) ||
+                    recipe.ustensils.some((ustensil) =>
+                      ustensil.toLowerCase().includes(keyword.toLowerCase())
+                    ) ||
+                    recipe.ingredients.some((ingredient) =>
+                      ingredient.ingredient
+                        .toLowerCase()
+                        .includes(keyword.toLowerCase())
+                    )
+        )
+      } else if (searchType === 'input') {
+        const titleDescriptionString = (
+          recipe.name +
+                    ' ' +
+                    recipe.description
+        ).toLowerCase()
+        const allIngredientsString = recipe.ingredients
+          .map((ingredient) => ingredient.ingredient.toLowerCase())
+          .join(' ')
+
+        return (
+          titleDescriptionString.includes(keyword.toLowerCase()) ||
+                    allIngredientsString.includes(keyword.toLowerCase())
+        )
+      }
     })
   })
 }
@@ -87,7 +169,8 @@ export const debounce = (func, delay) => {
  */
 export const eraseCross = (e, i) => {
   i.value = ''
-  i.parentElement.lastElementChild.style.marginLeft = (i.id === 'search') ? '-60px' : '-22px'
+  i.parentElement.lastElementChild.style.marginLeft =
+        i.id === 'search' ? '-60px' : '-22px'
   e.remove()
 
   recipeFactory.updateCards()
@@ -127,12 +210,19 @@ export const createElement = (type, attributes = {}, children = []) => {
 export const handleCross = (i) => {
   const cross = i.parentElement.querySelector('.cross')
 
-  const crossPicture = createElement('img', { class: (i.id === 'search') ? 'cross' : 'cross cross-dropdown', src: './assets/images/Cross.svg', alt: 'Croix' })
+  const crossPicture = createElement('img', {
+    class: i.id === 'search' ? 'cross' : 'cross cross-dropdown',
+    src: './assets/images/Cross.svg',
+    alt: 'Croix'
+  })
   crossPicture.addEventListener('click', () => eraseCross(crossPicture, i))
 
-  if (i.value.length < 1) return (cross) ? eraseCross(cross, i) : 0
+  if (i.value.length < 1) return cross ? eraseCross(cross, i) : 0
   if (cross) return
 
   i.parentElement.lastElementChild.style.marginLeft = 'unset'
-  i.parentElement.insertBefore(crossPicture, i.parentElement.lastElementChild)
+  i.parentElement.insertBefore(
+    crossPicture,
+    i.parentElement.lastElementChild
+  )
 }
