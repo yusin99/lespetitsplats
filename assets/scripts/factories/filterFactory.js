@@ -55,6 +55,7 @@ export const FilterFactory = () => {
     const dropdownContainer = document.querySelector(
       '.custom-dropdown-container'
     )
+    const selectedTags = recipeFactory.getTags()
 
     const menu = [
       { name: 'Ingrédients', list: ingredients },
@@ -63,7 +64,7 @@ export const FilterFactory = () => {
     ]
     dropdownContainer.innerHTML = ''
     menu.forEach((category) => {
-      const filterHTML = createDropdown(category.name, category.list)
+      const filterHTML = createDropdown(category.name, category.list, selectedTags)
       dropdownContainer.appendChild(filterHTML)
     })
   }
@@ -74,7 +75,7 @@ export const FilterFactory = () => {
      * @param {Array} elements - The elements to be included in the dropdown menu.
      * @returns {HTMLElement} - The created dropdown menu.
      */
-  const createDropdown = (title, elements) => {
+  const createDropdown = (title, elements, selectedTags) => {
     const dropdownTitle = createElement('div', {
       className: 'custom-dropdown-title'
     })
@@ -111,6 +112,9 @@ export const FilterFactory = () => {
     })
     elements.forEach((element) => {
       const p = createElement('p', {}, element)
+      if (selectedTags.includes(element)) {
+        p.classList.add('custom-filter-selected')
+      }
       p.addEventListener('click', (event) =>
         recipeFactory.addTag(event.target)
       )
@@ -143,7 +147,7 @@ export const FilterFactory = () => {
     const crossPictureClickHandler = (e) => {
       recipeFactory.getTags().forEach((tag) => {
         const element = e.target.parentElement.querySelector('p')
-        if (tag.textContent === element.textContent) { recipeFactory.removeTag(tag) }
+        if (tag === element.innerHTML) { recipeFactory.removeTag(tag) }
       })
 
       e.target.parentElement.remove()

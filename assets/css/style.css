@@ -114,7 +114,7 @@ main {
 }
 
 .custom-filter-selected{
-    background-color: red;
+    background-color: var(--yellow);
     font-weight: bold;
 }
 

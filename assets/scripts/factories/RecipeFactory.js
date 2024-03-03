@@ -76,7 +76,7 @@ export const RecipeFactory = () => {
      * @returns {Array} - The filtered recipes based on selected tags.
      */
   const filterByTags = () => {
-    const tagsTextContent = selectedTags.map((tag) => tag.textContent)
+    const tagsTextContent = selectedTags.map((tag) => tag)
     return tagsTextContent.length !== 0
       ? filterAlgorithm(recipes, tagsTextContent, 'tag')
       : []
@@ -147,8 +147,9 @@ export const RecipeFactory = () => {
      * @param {HTMLElement} tag - The tag element to add.
      */
   const addTag = (tag) => {
-    if (!selectedTags.some((existingTag) => existingTag.isEqualNode(tag))) {
-      selectedTags.push(tag)
+    const tagText = tag.innerHTML
+    if (!selectedTags.includes(tagText)) {
+      selectedTags.push(tagText)
       updateTags(tag)
     }
   }
