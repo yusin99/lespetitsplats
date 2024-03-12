@@ -20,7 +20,7 @@ filterFactory.init()
 // Debounced function to update recipe cards based on user input
 const debouncedUpdateCards = debounce((value) => {
   recipeFactory.updateCards(value)
-}, 500)
+}, 700)
 
 // Attach event listeners to input elements for keyup events
 document.addEventListener('keyup', (event) => {

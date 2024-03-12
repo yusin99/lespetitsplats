@@ -76,9 +76,8 @@ export const RecipeFactory = () => {
      * @returns {Array} - The filtered recipes based on selected tags.
      */
   const filterByTags = () => {
-    const tagsTextContent = selectedTags.map((tag) => tag)
-    return tagsTextContent.length !== 0
-      ? filterAlgorithm(recipes, tagsTextContent, 'tag')
+    return selectedTags.length !== 0
+      ? filterAlgorithm(recipes, selectedTags, 'tag')
       : []
   }
 
