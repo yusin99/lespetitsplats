@@ -44,67 +44,6 @@ export const createCard = (recipe) => {
   return card
 }
 
-// Algo1
-// export const filterAlgorithm = (recipes, keywords, searchType) => {
-//   const filteredRecipes = []
-
-//   for (const recipe of recipes) {
-//     let isMatched = true
-
-//     for (const keyword of keywords) {
-//       if (searchType === 'tag') {
-//         if (
-//           !(
-//             recipe.appliance
-//               .toLowerCase()
-//               .includes(keyword.toLowerCase()) ||
-//                         recipe.ustensils.some((ustensil) =>
-//                           ustensil
-//                             .toLowerCase()
-//                             .includes(keyword.toLowerCase())
-//                         ) ||
-//                         recipe.ingredients.some((ingredient) =>
-//                           ingredient.ingredient
-//                             .toLowerCase()
-//                             .includes(keyword.toLowerCase())
-//                         )
-//           )
-//         ) {
-//           isMatched = false
-//           break
-//         }
-//       } else if (searchType === 'input') {
-//         const titleDescriptionString = (
-//           recipe.name +
-//                     ' ' +
-//                     recipe.description
-//         ).toLowerCase()
-//         const allIngredientsString = recipe.ingredients
-//           .map((ingredient) => ingredient.ingredient.toLowerCase())
-//           .join(' ')
-
-//         if (
-//           !(
-//             titleDescriptionString.includes(
-//               keyword.toLowerCase()
-//             ) ||
-//                         allIngredientsString.includes(keyword.toLowerCase())
-//           )
-//         ) {
-//           isMatched = false
-//           break
-//         }
-//       }
-//     }
-
-//     if (isMatched) {
-//       filteredRecipes.push(recipe)
-//     }
-//   }
-
-//   return filteredRecipes
-// }
-
 /**
  * Filters recipes based on the search input or selected tags.
  * @param {Array} recipes - The list of recipes to filter.
@@ -112,24 +51,35 @@ export const createCard = (recipe) => {
  * @param {string} searchType - Type of search: 'tag' or 'input'.
  * @returns {Array} - The filtered recipes.
  */
+// Algo2
 export const filterAlgorithm = (recipes, keywords, searchType) => {
-  return recipes.filter((recipe) => {
-    // eslint-disable-next-line array-callback-return
-    return keywords.every((keyword) => {
+  const filteredRecipes = []
+
+  for (const recipe of recipes) {
+    let isMatched = true
+
+    for (const keyword of keywords) {
       if (searchType === 'tag') {
-        return (
-          recipe.appliance
-            .toLowerCase()
-            .includes(keyword.toLowerCase()) ||
-                    recipe.ustensils.some((ustensil) =>
-                      ustensil.toLowerCase().includes(keyword.toLowerCase())
-                    ) ||
-                    recipe.ingredients.some((ingredient) =>
-                      ingredient.ingredient
-                        .toLowerCase()
-                        .includes(keyword.toLowerCase())
-                    )
-        )
+        if (
+          !(
+            recipe.appliance
+              .toLowerCase()
+              .includes(keyword.toLowerCase()) ||
+                        recipe.ustensils.some((ustensil) =>
+                          ustensil
+                            .toLowerCase()
+                            .includes(keyword.toLowerCase())
+                        ) ||
+                        recipe.ingredients.some((ingredient) =>
+                          ingredient.ingredient
+                            .toLowerCase()
+                            .includes(keyword.toLowerCase())
+                        )
+          )
+        ) {
+          isMatched = false
+          break
+        }
       } else if (searchType === 'input') {
         const titleDescriptionString = (
           recipe.name +
@@ -140,14 +90,64 @@ export const filterAlgorithm = (recipes, keywords, searchType) => {
           .map((ingredient) => ingredient.ingredient.toLowerCase())
           .join(' ')
 
-        return (
-          titleDescriptionString.includes(keyword.toLowerCase()) ||
-                    allIngredientsString.includes(keyword.toLowerCase())
-        )
+        if (
+          !(
+            titleDescriptionString.includes(
+              keyword.toLowerCase()
+            ) ||
+                        allIngredientsString.includes(keyword.toLowerCase())
+          )
+        ) {
+          isMatched = false
+          break
+        }
       }
-    })
-  })
+    }
+
+    if (isMatched) {
+      filteredRecipes.push(recipe)
+    }
+  }
+
+  return filteredRecipes
 }
+
+// export const filterAlgorithm = (recipes, keywords, searchType) => {
+//   return recipes.filter((recipe) => {
+//     // eslint-disable-next-line array-callback-return
+//     return keywords.every((keyword) => {
+//       if (searchType === 'tag') {
+//         return (
+//           recipe.appliance
+//             .toLowerCase()
+//             .includes(keyword.toLowerCase()) ||
+//                     recipe.ustensils.some((ustensil) =>
+//                       ustensil.toLowerCase().includes(keyword.toLowerCase())
+//                     ) ||
+//                     recipe.ingredients.some((ingredient) =>
+//                       ingredient.ingredient
+//                         .toLowerCase()
+//                         .includes(keyword.toLowerCase())
+//                     )
+//         )
+//       } else if (searchType === 'input') {
+//         const titleDescriptionString = (
+//           recipe.name +
+//                     ' ' +
+//                     recipe.description
+//         ).toLowerCase()
+//         const allIngredientsString = recipe.ingredients
+//           .map((ingredient) => ingredient.ingredient.toLowerCase())
+//           .join(' ')
+
+//         return (
+//           titleDescriptionString.includes(keyword.toLowerCase()) ||
+//                     allIngredientsString.includes(keyword.toLowerCase())
+//         )
+//       }
+//     })
+//   })
+// }
 
 /**
  * Debounces a function call to limit the rate of execution.
